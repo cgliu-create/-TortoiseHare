@@ -3,22 +3,21 @@ package algo
 // FindDuplicate (floyds algorithem)
 // moves two pointers at different speeds through the sequence of values
 // until they both point to equal values
-// given array with integers >= 1 and <= size of the array
+// given array of size n with values that conveniently range from 0 to n-1. *cough cough index*
 func FindDuplicate(nums []int) int {
+	if len(nums) <= 1 {
+		return -1
+	}
 	t := nums[0]
-	h := nums[0]
-	for {
+	h := nums[nums[0]]
+	for t != h {
 		t = nums[t]
 		h = nums[nums[h]]
-		if t == h {
-			break
-		}
 	}
-	p1 := nums[0]
-	p2 := t
-	for p1 != p2 {
-		p1 = nums[p1]
-		p2 = nums[p2]
+	p := 0
+	for p != t {
+		p = nums[p]
+		t = nums[t]
 	}
-	return nums[p1]
+	return p
 }
