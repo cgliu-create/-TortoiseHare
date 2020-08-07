@@ -1,3 +1,2 @@
 # -TortoiseHare
-
-Floyd’s Cycle Detection in golang
+finding duplicates
